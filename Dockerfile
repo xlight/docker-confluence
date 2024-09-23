@@ -1,4 +1,4 @@
-FROM atlassian/confluence-server
+FROM atlassian/confluence-server:7.20.3
 
 
 #WORKDIR /root
