@@ -27,4 +27,4 @@ jobs:
         with:
           platforms: linux/amd64
           push: true
-          tags: ${{ github.repository_owner }}/confluence-server:7.20.3
+          tags: ${{ github.repository_owner }}/confluence-server:${GITHUB_REF#refs/heads/:-$GITHUB_REF_NAME}
