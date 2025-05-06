@@ -18,7 +18,8 @@ VOLUME /var/atlassian/application-data/confluence
 
 RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.3.0.tar.gz \
   && tar -zxvf mysql-connector-j-9.3.0.tar.gz \
-  && mv mysql-connector-j-9.3.0/mysql-connector-j-9.3.0.jar /opt/atlassian/confluence/lib/
+  && mv mysql-connector-j-9.3.0/mysql-connector-j-9.3.0.jar /opt/atlassian/confluence/lib/ \
+  && rm -rf mysql-connector-j-9.3.0
 
 ENV JAVA_OPTS "-javaagent:/opt/atlassian-agent.jar"
 
