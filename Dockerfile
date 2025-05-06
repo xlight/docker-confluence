@@ -1,4 +1,4 @@
-FROM atlassian/confluence-server:7.20.3
+FROM atlassian/confluence-server:8.6.2
 
 
 #WORKDIR /root
@@ -12,9 +12,13 @@ VOLUME /var/atlassian/application-data/confluence
 
 
 #ADD  http://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-5.1.30.tar.gz /opt/atlassian/jira/lib/
-COPY  mysql-connector-java-5.1.30-bin.jar /opt/atlassian/confluence/lib/
+#COPY  mysql-connector-java-5.1.30-bin.jar /opt/atlassian/confluence/lib/
 #ENV ATL_DB_DRIVER com.mysql.jdbc.Driver
 #ENV ATL_DB_TYPE mysql
+
+RUN wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.3.0.tar.gz \
+  && tar -zxvf mysql-connector-j-9.3.0.tar.gz \
+  && mv mysql-connector-j-9.3.0/mysql-connector-j-9.3.0.jar /opt/atlassian/confluence/lib/
 
 ENV JAVA_OPTS "-javaagent:/opt/atlassian-agent.jar"
 
